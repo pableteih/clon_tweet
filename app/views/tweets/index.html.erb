@@ -16,8 +16,10 @@
 </form>
 
 <div id="tweets">
-  <% if @tweets.length > 0 %>
-    <% @tweets.each do |tweet| %>
+  <% h=@tweets %>
+  <% h1=h.invert %>
+  <% if h1.length > 0 %>
+    <% h1.each do |tweet| %>
     <div class="card mb-3 bg-dark text-white">
         <div class="card-body">
               <%= render tweet %>
