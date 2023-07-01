@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ClonTweet</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="cuerpo">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 border-end border-2">
+            <nav class="fixed-nav-left">
+              <!-- Contenido del navbar izquierdo -->
+              <div class="d-flex flex-column align-items-start">
+                  
+                    <i class="fab fa-twitter mb-2"></i>
+                    <a href="<%= tweets_path %>" class="nav-link mb-2 fs-5" ><i class="fas fa-home"></i> Inicio</a>
+                    <a href="<%= tweets_path %>" class="nav-link mb-2 fs-5" ><i class="fas fa-search"></i>   Explorar</a>
+                    <a href="<%= tweets_path %>" class="nav-link mb-2 fs-5" ><i class="fas fa-bell"></i>   Notificaciones</a>
+                    <a href="<%= tweets_path %>" class="nav-link mb-2 fs-5" ><i class="fas fa-envelope"></i>   Mensajes</a>
+                    <a href="<%= tweets_path %>" class="nav-link mb-2 fs-5" ><i class="far fa-bookmark"></i>   Guardados</a>
+                    <a href="<%= tweets_path %>" class="nav-link mb-2 fs-5" ><i class="fab fa-twitter"></i>   Verificados</a>
+                    <a href="<%= tweets_path %>" class="nav-link mb-2 fs-5" ><i class="fas fa-user"></i>   Perfil</a>
+                    <a href="<%= tweets_path %>" class="nav-link mb-5 fs-5" ><i class="fas fa-cog"></i>   Más opciones</a>
+                    <%= link_to new_tweet_path, class: "btn btn-primary mb-2" do %>
+                      Twittear
+                    <% end %>
+                      
+                </div>
+            </nav>
+          </div>
+          <div class="col-lg-6 text-white">
+            <!-- Contenido principal -->
+            <%= yield %>  
+          </div>
+          <div class="col-lg-3 border-start border-2">
+            <nav class="fixed-nav-right">
+              <!-- Contenido del navbar derecho -->
+              <nav class="nav flex-column">
+                  <div class="d-flex mb-4">
+                    <div class="col-sm-6 mb-3 mb-sm-0 flex-fill">
+                      <div class="card bg-dark">
+                        <div class="card-body">
+                          <h5 class="card-title text-white">Obten verificación</h5>
+                          <p class="card-text text-white" >Suscribete para obtener nuevas funciones</p>
+                          <a href="#" class="btn btn-primary text-white">Obtener verificación</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>    
+                    <ul class="list-group bg-dark text-white border-0">
+                      <% @tweets.each do |tweet| %>
+                        <li class="list-group-item bg-dark text-white border-0"><%= tweet.user_name %></li>
+                      <% end %>
+                    </ul>  
+              </nav>
+            </nav>
+          </div>
+        </div>
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </body>
+</html>

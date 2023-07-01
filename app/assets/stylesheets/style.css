@@ -1,0 +1,25 @@
+
+
+.cuerpo{
+    background-color: black;
+    margin-top: 50px;
+    
+   
+}
+
+.nav-link{
+    color: aliceblue;
+
+}
+.fixed-nav-left {
+    position: fixed;
+    z-index: 9999;
+  }
+  
+  .fixed-nav-right {
+    position: fixed;
+    z-index: 9999;
+  }
+  .fixed-nav-left .d-flex.flex-column.align-items-start {
+    align-items: flex-start;
+  }
